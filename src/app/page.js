@@ -1,0 +1,308 @@
+import Cta from "@/components/Cta";
+import CtaButton from "@/components/CtaButton";
+import Testimonials from "@/components/Testimonials";
+import {
+  CircleCheckBig,
+  Clock,
+  Target,
+  RefreshCcw,
+  DollarSign,
+  FileTypeCorner,
+  Headphones,
+  Sparkles,
+  Pencil,
+  Dumbbell,
+  HardHat,
+  Shirt,
+  Layers,
+  Upload,
+  Cpu,
+  ShieldCheckIcon,
+  Send,
+} from "lucide-react";
+import Image from "next/image";
+
+export default function Home() {
+  const stats = [
+    {
+      icon: Clock,
+      heading: "Fast Turnaround",
+      description: "2–6 hour delivery on most orders",
+    },
+    {
+      icon: Target,
+      heading: "Precision Stitching",
+      description: "Clean and optimized embroidery files",
+    },
+    {
+      icon: RefreshCcw,
+      heading: "Unlimited Revisions",
+      description: "No extra cost until you're satisfied",
+    },
+    {
+      icon: DollarSign,
+      heading: "Affordable Pricing",
+      description: "Competitive rates for all budgets",
+    },
+    {
+      icon: FileTypeCorner,
+      heading: "Multi-Format Delivery",
+      description: "DST, PES, EMB and more",
+    },
+    {
+      icon: Headphones,
+      heading: "24/7 Support",
+      description: "We're always here to help",
+    },
+  ];
+  const coreServices = [
+    {
+      icon: Sparkles,
+      heading: "Embroidery Digitizing",
+    },
+    {
+      icon: HardHat,
+      heading: "Cap Digitizing",
+    },
+    {
+      icon: Shirt,
+      heading: "Jacket Back Digitizing",
+    },
+    {
+      icon: Layers,
+      heading: "3D Puff Digitizing",
+    },
+    {
+      icon: Pencil,
+      heading: "Vector Art Conversion",
+    },
+    {
+      icon: Dumbbell,
+      heading: "Custom Embroidery Patches",
+    },
+  ];
+  const process = [
+    {
+      icon: Upload,
+      heading: "Submit Your Design",
+      description: "Upload your artwork in any format",
+    },
+    {
+      icon: Cpu,
+      heading: "Expert Digitizing Process",
+      description: "Our specialists create precise stitch files",
+    },
+    {
+      icon: ShieldCheckIcon,
+      heading: "Quality Testing & Sew-Out",
+      description: "Every file is tested for perfection",
+    },
+    {
+      icon: Send,
+      heading: "File Delivery Within Hours",
+      description: "Receive production-ready files fast",
+    },
+  ];
+  return (
+    <div className="mt-20">
+      {/* Hero */}
+      <section className="flex justify-center items-center py-10">
+        {/* Content */}
+        <div className="w-1/2 ml-10 flex flex-col gap-4">
+          <h1 className="font-heading text-5xl font-bold text-primary">
+            Premium Embroidery Digitizing & Vector Art Services
+          </h1>
+          <p className="font-body text-lg text-primary/80">
+            Transform your logos, artwork, and designs into production-ready
+            embroidery files with unmatched precision, fast turnaround, and
+            professional stitch quality.
+          </p>
+          <p className="font-body text-lg text-primary/80">
+            We specialize in embroidery digitizing, vector art conversion, 3D
+            puff designs, cap digitizing, jacket back digitizing, and custom
+            patch services.
+          </p>
+          <div className="flex gap-4 font-body my-5">
+            <CtaButton>Get A Free Quote</CtaButton>
+
+            <button className="bg-white  text-primary w-fit mt-5 px-6 py-3 font-body rounded-xl transition-all duration-150 cursor-pointer shadow-sm hover:scale-105 hover:bg-primary/90 hover:text-white border-primary  border-2">
+              Order Now
+            </button>
+          </div>
+          <div className="flex gap-4 font-body my-5">
+            {["Fast Delivery", "Quality Guaranteed", "Unlimited Revisions"].map(
+              (item, index) => (
+                <span
+                  key={index}
+                  className="flex items-center gap-2 text-secondary"
+                >
+                  <CircleCheckBig size={16} />
+                  {item}
+                </span>
+              ),
+            )}
+          </div>
+        </div>
+        {/* Image */}
+        <div className="w-1/2 flex justify-center mt-2 ">
+          <Image
+            src="/hero/home-hero.png"
+            alt="Hero"
+            width={250}
+            height={250}
+            className="shadow-2xl p-5"
+          />
+        </div>
+      </section>
+      {/* Stats */}
+      <section className="bg-gray-background flex flex-col items-center py-20">
+        <h1 className="main-heading">
+          Why Businesses Trust Our Digitizing Experts
+        </h1>
+        <div className="grid grid-cols-3 gap-x-10 gap-y-10 mt-10">
+          {stats.map((stat, index) => {
+            const Icon = stat.icon;
+
+            return (
+              <div
+                key={index}
+                className="flex flex-col items-start text-center p-8 bg-white rounded-2xl shadow-md hover:shadow-xl transition"
+              >
+                <span className="bg-secondary/20 flex items-center justify-center p-3 rounded-2xl mb-4">
+                  <Icon size={32} className="text-secondary " />
+                </span>
+                <h2 className="text-xl font-heading font-semibold text-primary">
+                  {stat.heading}
+                </h2>
+                <p className="text-secondary font-body mt-2 text-sm">
+                  {stat.description}
+                </p>
+              </div>
+            );
+          })}
+        </div>
+      </section>
+      {/* Explore Services */}
+      <section className="bg-white-background grid grid-cols-1 lg:grid-cols-2 px-10 py-20 gap-x-10 items-center">
+        <div>
+          <Image
+            src="/explore.jpg"
+            width={650}
+            height={650}
+            alt="explore-services"
+            className="rounded-2xl shadow-xl"
+          />
+        </div>
+        <div className="flex flex-col">
+          <h1 className="main-heading">
+            Professional Digitizing <br /> Solutions for Every Industry
+          </h1>
+          <p className="text-primary/80 text-lg font-body mt-4">
+            We help brands, embroidery shops, and businesses convert artwork
+            into machine-ready embroidery files with perfect stitch accuracy.
+            Whether you need a simple logo or a complex multi-color design, our
+            team delivers flawless results every time.
+          </p>
+          <CtaButton>Explore Services</CtaButton>
+        </div>
+      </section>
+      {/* Core Services */}
+      <section className="flex flex-col items-center py-20 bg-gray-background">
+        <h1 className="main-heading">Our Core Services</h1>
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-x-10 gap-y-5 my-10 px-10">
+          {coreServices.map((service, index) => {
+            const Icon = service.icon;
+            return (
+              <div
+                key={index}
+                className="flex flex-col items-center text-center px-20 py-8 bg-white rounded-2xl  hover:shadow-xl transition"
+              >
+                <span className="bg-secondary/20 flex items-center justify-center p-3 rounded-2xl mb-4">
+                  <Icon size={32} className="text-secondary " />
+                </span>
+                <h3 className="text-lg font-heading font-semibold text-primary cursor-pointer">
+                  {service.heading}
+                </h3>
+              </div>
+            );
+          })}
+        </div>
+        <CtaButton>View All Services</CtaButton>
+      </section>
+      {/* Portfolio */}
+      <section className="flex flex-col items-center bg-white-background py-20">
+        <h1 className="main-heading">Recent Work & Portfolio</h1>
+        <p className="text-primary/80 text-lg font-body mt-4">
+          Showcase of high-quality embroidery digitizing and vector art work.
+        </p>
+        <div className="grid grid-cols-1 lg:grid-cols-3 items-stretch gap-4 my-10">
+          {/* Left Big */}
+          <Image
+            src="/portfolio/portfolio3.jpg"
+            alt="Portfolio 3"
+            width={500}
+            height={400}
+            className="row-span-2 rounded-2xl"
+          />
+          <Image
+            src="/portfolio/portfolio1.jpg"
+            alt="Portfolio 1"
+            width={400}
+            height={200}
+            className=" rounded-2xl"
+          />
+          <Image
+            src="/portfolio/portfolio4.jpg"
+            alt="Portfolio 4"
+            width={400}
+            height={400}
+            className="row-span-2 rounded-2xl"
+          />
+          <Image
+            src="/portfolio/portfolio2.jpg"
+            alt="Portfolio 2"
+            width={400}
+            height={200}
+            className=" rounded-2xl"
+          />
+        </div>
+        {/* View All Button */}
+        <CtaButton>View All Portfolio</CtaButton>
+      </section>
+      {/* Process */}
+      <section className="flex flex-col items-center bg-gray-background py-20">
+        <h1 className="main-heading">Simple 4-Step Process</h1>
+        <div className="flex flex-wrap flex-col lg:flex-row gap-10 my-10">
+          {process.map((step, index) => {
+            const Icon = step.icon;
+            return (
+              <div className="flex-col flex items-center" key={index}>
+                <span className="bg-secondary/20 flex items-center justify-center p-3 rounded-full mb-4 w-fit relative">
+                  <Icon size={32} className="text-secondary " />
+                  <span className="absolute -top-2 -right-2 bg-cta text-white w-fit px-2 rounded-full">
+                    {index + 1}
+                  </span>
+                </span>
+                <h3 className="text-lg font-heading font-semibold text-primary cursor-pointer">
+                  {step.heading}
+                </h3>
+                <p className="text-primary/80 text-sm font-body mt-2">
+                  {step.description}
+                </p>
+              </div>
+            );
+          })}
+        </div>
+      </section>
+      {/* Testimonials */}
+      <Testimonials />
+      {/* CTA */}
+      <Cta
+        heading="Ready to Transform Your Design into Perfect Embroidery?"
+        text="Upload your artwork today and get premium digitized files fast."
+        button="Get a Quote"
+        contactButton={true}
+      />
+    </div>
+  );
+}
