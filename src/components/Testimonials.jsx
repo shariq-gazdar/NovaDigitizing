@@ -42,15 +42,23 @@ export default function Testimonials() {
 
   return (
     <section className="py-20 bg-white-background flex flex-col ">
-      <h1 className="main-heading text-center mb-10">
+      <h1 className="text-center text-4xl mb-5 text-primary font-heading font-bold">
         Trusted by Embroidery Businesses Worldwide
       </h1>
       <div>
         <Swiper
-          slidesPerView={2}
+          breakpoints={{
+            0: {
+              slidesPerView: 1, // mobile
+            },
+            1024: {
+              slidesPerView: 2, // laptops
+            },
+          }}
           spaceBetween={30}
           pagination={{ clickable: true }}
           modules={[Pagination]}
+          watchSlidesProgress
           loop={true}
           className="max-w-[80%] flex items-stretch"
         >

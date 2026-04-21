@@ -106,9 +106,9 @@ export default function Home() {
   return (
     <div className="mt-20">
       {/* Hero */}
-      <section className="flex justify-center items-center py-10">
+      <section className="bg-white-background flex flex-col lg:flex-row justify-center items-center py-10">
         {/* Content */}
-        <div className="w-1/2 ml-10 flex flex-col gap-4">
+        <div className="w-full lg:w-1/2 ml-10 flex flex-col gap-4">
           <h1 className="font-heading text-5xl font-bold text-primary">
             Premium Embroidery Digitizing & Vector Art Services
           </h1>
@@ -123,13 +123,13 @@ export default function Home() {
             patch services.
           </p>
           <div className="flex gap-4 font-body my-5">
-            <CtaButton>Get A Free Quote</CtaButton>
+            <CtaButton className="mt-5">Get A Free Quote</CtaButton>
 
             <button className="bg-white  text-primary w-fit mt-5 px-6 py-3 font-body rounded-xl transition-all duration-150 cursor-pointer shadow-sm hover:scale-105 hover:bg-primary/90 hover:text-white border-primary  border-2">
               Order Now
             </button>
           </div>
-          <div className="flex gap-4 font-body my-5">
+          <div className="flex gap-4 font-body my-5 justify-center">
             {["Fast Delivery", "Quality Guaranteed", "Unlimited Revisions"].map(
               (item, index) => (
                 <span
@@ -144,7 +144,7 @@ export default function Home() {
           </div>
         </div>
         {/* Image */}
-        <div className="w-1/2 flex justify-center mt-2 ">
+        <div className="w-full lg:w-1/2 flex justify-center mt-2 ">
           <Image
             src="/hero/home-hero.png"
             alt="Hero"
@@ -155,11 +155,11 @@ export default function Home() {
         </div>
       </section>
       {/* Stats */}
-      <section className="bg-gray-background flex flex-col items-center py-20">
+      <section className="bg-gray-background flex flex-col items-center padding-container">
         <h1 className="main-heading">
           Why Businesses Trust Our Digitizing Experts
         </h1>
-        <div className="grid grid-cols-3 gap-x-10 gap-y-10 mt-10">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-x-10 gap-y-10 mt-10">
           {stats.map((stat, index) => {
             const Icon = stat.icon;
 
@@ -190,20 +190,22 @@ export default function Home() {
             width={650}
             height={650}
             alt="explore-services"
-            className="rounded-2xl shadow-xl"
+            className="rounded-2xl shadow-xl mb-5 lg:mb-0"
           />
         </div>
         <div className="flex flex-col">
           <h1 className="main-heading">
             Professional Digitizing <br /> Solutions for Every Industry
           </h1>
-          <p className="text-primary/80 text-lg font-body mt-4">
+          <p className="text-primary/80 text-lg font-body mt-4 text-center lg:text-start">
             We help brands, embroidery shops, and businesses convert artwork
             into machine-ready embroidery files with perfect stitch accuracy.
             Whether you need a simple logo or a complex multi-color design, our
             team delivers flawless results every time.
           </p>
-          <CtaButton>Explore Services</CtaButton>
+          <CtaButton className="w-full lg:w-fit mt-5">
+            Explore Services
+          </CtaButton>
         </div>
       </section>
       {/* Core Services */}
@@ -230,43 +232,62 @@ export default function Home() {
         <CtaButton>View All Services</CtaButton>
       </section>
       {/* Portfolio */}
-      <section className="flex flex-col items-center bg-white-background py-20">
-        <h1 className="main-heading">Recent Work & Portfolio</h1>
-        <p className="text-primary/80 text-lg font-body mt-4">
+      <section className="flex flex-col items-center bg-white-background py-20 px-4">
+        {/* Heading */}
+        <h1 className="main-heading text-center">Recent Work & Portfolio</h1>
+
+        <p className="text-primary/80 text-lg font-body mt-4 text-center max-w-2xl">
           Showcase of high-quality embroidery digitizing and vector art work.
         </p>
-        <div className="grid grid-cols-1 lg:grid-cols-3 items-stretch gap-4 my-10">
-          {/* Left Big */}
-          <Image
-            src="/portfolio/portfolio3.jpg"
-            alt="Portfolio 3"
-            width={500}
-            height={400}
-            className="row-span-2 rounded-2xl"
-          />
-          <Image
-            src="/portfolio/portfolio1.jpg"
-            alt="Portfolio 1"
-            width={400}
-            height={200}
-            className=" rounded-2xl"
-          />
-          <Image
-            src="/portfolio/portfolio4.jpg"
-            alt="Portfolio 4"
-            width={400}
-            height={400}
-            className="row-span-2 rounded-2xl"
-          />
-          <Image
-            src="/portfolio/portfolio2.jpg"
-            alt="Portfolio 2"
-            width={400}
-            height={200}
-            className=" rounded-2xl"
-          />
+
+        {/* Grid */}
+        <div className="grid w-full max-w-6xl grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 my-10">
+          {/* Big Left */}
+          <div className="relative w-full h-[250px] sm:h-[300px] lg:h-full lg:row-span-2">
+            <Image
+              src="/portfolio/portfolio3.jpg"
+              alt="Portfolio 3"
+              fill
+              className="object-cover rounded-2xl"
+              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+            />
+          </div>
+
+          {/* Top Middle */}
+          <div className="relative w-full h-[200px] sm:h-[250px]">
+            <Image
+              src="/portfolio/portfolio1.jpg"
+              alt="Portfolio 1"
+              fill
+              className="object-cover rounded-2xl"
+              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+            />
+          </div>
+
+          {/* Big Right */}
+          <div className="relative w-full h-[250px] sm:h-[300px] lg:h-full lg:row-span-2">
+            <Image
+              src="/portfolio/portfolio4.jpg"
+              alt="Portfolio 4"
+              fill
+              className="object-cover rounded-2xl"
+              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+            />
+          </div>
+
+          {/* Bottom Middle */}
+          <div className="relative w-full h-[200px] sm:h-[250px]">
+            <Image
+              src="/portfolio/portfolio2.jpg"
+              alt="Portfolio 2"
+              fill
+              className="object-cover rounded-2xl"
+              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+            />
+          </div>
         </div>
-        {/* View All Button */}
+
+        {/* CTA */}
         <CtaButton>View All Portfolio</CtaButton>
       </section>
       {/* Process */}

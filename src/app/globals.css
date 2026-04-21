@@ -11,9 +11,12 @@
   --color-cta: #f97316;
 }
 .main-heading {
-  @apply text-4xl text-primary font-heading font-bold;
+  @apply text-4xl text-primary font-heading font-bold text-center lg:text-start;
 }
 .swiper-slide {
   height: auto !important;
   display: flex;
+}
+.padding-container {
+  @apply px-10 py-20;
 }

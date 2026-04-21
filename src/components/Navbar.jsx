@@ -1,63 +1,86 @@
+"use client";
 import Image from "next/image";
-import React from "react";
+import Link from "next/link";
+import { useState } from "react";
+import { Menu, X } from "lucide-react";
 
 function Navbar() {
+  const [open, setOpen] = useState(false);
+
   const pages = [
-    {
-      name: "Home",
-      href: "/",
-    },
-    {
-      name: "Services",
-      href: "/services",
-    },
-    {
-      name: "About Us",
-      href: "/about",
-    },
-    {
-      name: "Portfolio",
-      href: "/portfolio",
-    },
-    {
-      name: "Pricing",
-      href: "/pricing",
-    },
-    {
-      name: "Contact Us",
-      href: "/contact",
-    },
+    { name: "Home", href: "/" },
+    { name: "Services", href: "/services" },
+    { name: "About Us", href: "/about" },
+    { name: "Portfolio", href: "/portfolio" },
+    { name: "Pricing", href: "/pricing" },
+    { name: "Contact Us", href: "/contact" },
+    { name: "Order Now", href: "/order" },
   ];
+
   return (
-    <nav className="flex justify-between items-center px-8 py-5 shadow-sm fixed w-full bg-white z-90">
-      {/* Logo */}
-      <div>
+    <nav className="fixed w-full bg-white shadow-sm z-50">
+      <div className="flex justify-between items-center px-6 lg:px-10 py-4">
+        {/* Logo */}
         <Image
           src="/logo-transparent.png"
-          width={150}
-          height={150}
+          width={140}
+          height={140}
           alt="logo"
-          className=""
         />
-      </div>
-      {/* Pages */}
-      <div>
-        <ul className="flex gap-10">
+
+        {/* Desktop Menu */}
+        <ul className="hidden lg:flex gap-8">
           {pages.map((page) => (
-            <li
-              key={page.name}
-              className="text-sm font-medium text-primary/80 hover:text-secondary transition-colors duration-200"
-            >
-              <a href={page.href}>{page.name}</a>
+            <li key={page.name}>
+              <Link
+                href={page.href}
+                className="text-sm font-medium text-primary/80 hover:text-secondary transition"
+              >
+                {page.name}
+              </Link>
             </li>
           ))}
         </ul>
-      </div>
-      {/* CTA */}
-      <div>
-        <button className="bg-cta text-white px-6 py-3 rounded-lg font-extralight shadow-sm">
-          Get a Quote
+
+        {/* Desktop CTA */}
+        <div className="hidden lg:block">
+          <button className="bg-cta text-white px-6 py-3 rounded-lg shadow-sm">
+            Get a Quote
+          </button>
+        </div>
+
+        {/* Mobile Hamburger */}
+        <button className="lg:hidden" onClick={() => setOpen(!open)}>
+          {open ? <X size={28} /> : <Menu size={28} />}
         </button>
+      </div>
+
+      {/* Mobile Menu */}
+      <div
+        className={`lg:hidden transition-all duration-300 ${
+          open
+            ? "max-h-[500px] opacity-100"
+            : "max-h-0 opacity-0 overflow-hidden"
+        }`}
+      >
+        <ul className="flex flex-col items-center gap-6 py-6 bg-white shadow-md">
+          {pages.map((page) => (
+            <li key={page.name}>
+              <Link
+                href={page.href}
+                onClick={() => setOpen(false)}
+                className="text-base font-medium text-primary hover:text-secondary transition"
+              >
+                {page.name}
+              </Link>
+            </li>
+          ))}
+
+          {/* Mobile CTA */}
+          <button className="bg-cta text-white px-6 py-3 rounded-lg mt-4">
+            Get a Quote
+          </button>
+        </ul>
       </div>
     </nav>
   );
